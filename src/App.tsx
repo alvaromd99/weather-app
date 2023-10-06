@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
 import './App.css'
+import { useEffect, useState } from 'react'
+import { CurrenWeatherData } from './types/types'
 import WeatherInfo from './components/WeatherInfo'
-import { WeatherData } from './types/types'
 
 function App() {
-	const [data, setData] = useState<WeatherData[]>([])
+	const [currentData, setCurrentData] = useState<CurrenWeatherData>()
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -16,7 +16,7 @@ function App() {
 					throw new Error(`HTTP error! Status: ${response.status}`)
 				}
 				const responseData = await response.json()
-				setData(responseData)
+				setCurrentData(responseData)
 			} catch (err) {
 				console.error(err)
 			}
@@ -25,7 +25,7 @@ function App() {
 		fetchData()
 	}, [])
 
-	console.log(data)
+	console.log(currentData)
 
 	return (
 		<div className='App'>
