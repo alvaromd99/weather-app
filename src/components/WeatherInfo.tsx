@@ -17,7 +17,9 @@ export default function WeatherInfo({ data }: WeatherInfoProps) {
 					alt='Image related to the weather'
 				/>
 			</div>
-			<div className='temperature'>{main.temp}</div>
+			<div className='temperature'>
+				<span className='temp-number'>{Math.round(main.temp)}</span> ºC
+			</div>
 			<div className='weather-type'>{weather[0].main}</div>
 			<div className='date-location-cont'>
 				<div className='date'>{`Today · ${getFormatDate(dt)}`}</div>
