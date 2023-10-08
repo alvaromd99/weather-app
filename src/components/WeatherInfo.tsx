@@ -1,5 +1,6 @@
 import '../styles/WeatherInfo.css'
 import { CurrenWeatherData } from '../types/types'
+import { getFormatDate } from '../utils/main'
 
 interface WeatherInfoProps {
 	data: CurrenWeatherData
@@ -7,12 +8,6 @@ interface WeatherInfoProps {
 
 export default function WeatherInfo({ data }: WeatherInfoProps) {
 	const { weather, main, name, dt } = data
-
-	const fecha = new Date(dt * 1000)
-
-	const fechaFormateada = fecha.toLocaleString() // Esto dará como resultado una cadena de texto con la fecha y hora en formato local
-
-	console.log(fechaFormateada)
 
 	return (
 		<div className='city-info'>
@@ -24,7 +19,10 @@ export default function WeatherInfo({ data }: WeatherInfoProps) {
 			</div>
 			<div className='temperature'>{main.temp}</div>
 			<div className='weather-type'>{weather[0].main}</div>
-			<div className='location'>{name}</div>
+			<div className='date-location-cont'>
+				<div className='date'>{`Today · ${getFormatDate(dt)}`}</div>
+				<div className='location'>{name}</div>
+			</div>
 		</div>
 	)
 }
