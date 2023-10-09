@@ -18,9 +18,6 @@ export function useWeatherData() {
 				}
 				const responseData = await response.json()
 
-				console.log('ResponseData')
-				console.log(responseData)
-
 				const todayDate = new Date(responseData.dt * 1000).getDate()
 				today.current = todayDate
 

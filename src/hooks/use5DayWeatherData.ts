@@ -22,27 +22,27 @@ export function use5DayWeatherData(today: number | undefined) {
 				responseData.list.map((item: WeatherData) => {
 					const itemDate = new Date(item.dt * 1000).getDate()
 					if (today) {
-						if (itemDate === today) {
+						if (itemDate === today + 1) {
 							setDay2Data((prevState) => {
 								return [...prevState, item]
 							})
 						}
-						if (itemDate === today + 1) {
+						if (itemDate === today + 2) {
 							setDay3Data((prevState) => {
 								return [...prevState, item]
 							})
 						}
-						if (itemDate === today + 2) {
+						if (itemDate === today + 3) {
 							setDay4Data((prevState) => {
 								return [...prevState, item]
 							})
 						}
-						if (itemDate === today + 3) {
+						if (itemDate === today + 4) {
 							setDay5Data((prevState) => {
 								return [...prevState, item]
 							})
 						}
-						if (itemDate === today + 4) {
+						if (itemDate === today + 5) {
 							setDay6Data((prevState) => {
 								return [...prevState, item]
 							})
