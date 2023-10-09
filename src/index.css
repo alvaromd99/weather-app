@@ -3,6 +3,9 @@
 :root {
 	--bg-color: #100e1d;
 	--primary-color: #1e213a;
+	--letter-primary: #e7e7eb;
+	--letter-secondary: #a09fb1;
+	--letter-darker: #88869d;
 }
 
 *,
