@@ -3,16 +3,17 @@ import '../styles/TodaysHighlight.css'
 import WindInfo from './WindInfo'
 import HumidityInfo from './HumidityInfo'
 import VisibilityPressureInfo from './VisibilityPressureInfo'
+import { VISIBILITY_UNIT as visibilityUnit } from '../constants/constants'
 
 interface TodaysHighlightProps {
 	data: CurrenWeatherData
 }
 
 export default function TodaysHighlight({ data }: TodaysHighlightProps) {
-	const windSpeed = data.wind.speed
 	const visibility = data.visibility
-	const humidity = data.main.humidity
 	const pressure = data.main.pressure
+
+	console.log(visibilityUnit)
 
 	return (
 		<div className='highlights'>
@@ -22,7 +23,7 @@ export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 				<HumidityInfo />
 				<VisibilityPressureInfo
 					title={'Visibility'}
-					unit={'metres'}
+					unit={visibilityUnit}
 					className={'visibility'}
 					number={visibility}
 				/>
