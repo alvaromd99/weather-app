@@ -1,0 +1,21 @@
+.wind-number {
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.wind-number span {
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.wind-number p {
+	font-size: 30px;
+}
+
+.wind-direction {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}

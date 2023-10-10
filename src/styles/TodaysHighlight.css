@@ -1,3 +1,11 @@
+.container.humidity,
+.container.wind {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 .highlights {
 	height: 64%;
 }

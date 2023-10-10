@@ -13,6 +13,7 @@ export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 	const visibility = data.visibility
 	const pressure = data.main.pressure
 	const humidity = data.main.humidity
+	const windInfo = data.wind
 
 	console.log(visibilityUnit)
 
@@ -20,7 +21,7 @@ export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 		<div className='highlights'>
 			<h1>Today's Highlights</h1>
 			<div className='content'>
-				<WindInfo />
+				<WindInfo wind={windInfo} />
 				<HumidityInfo humidity={humidity} />
 				<VisibilityPressureInfo
 					title={'Visibility'}

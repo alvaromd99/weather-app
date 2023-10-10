@@ -11,8 +11,8 @@ export default function HumidityInfo({ humidity }: HumidityInfoProps) {
 		<div className='container humidity'>
 			<div>Humidity</div>
 			<div className='humidity-number'>
-				<span>54</span>
-				{' %'}
+				<span>84</span>
+				<p>%</p>
 			</div>
 			<div>
 				<div className='bar-numbers'>
