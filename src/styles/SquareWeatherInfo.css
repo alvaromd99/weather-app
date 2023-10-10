@@ -1,12 +1,13 @@
 .square {
 	width: 120px;
-	height: 140px;
+	height: 160px;
 	background-color: var(--primary-color);
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: column;
 	color: var(--letter-primary);
+	padding: 6px;
 }
 
 .square .weather-img {

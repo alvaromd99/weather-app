@@ -12,7 +12,9 @@ function App() {
 	return (
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
-			{currentData !== undefined ? <WeatherInfo data={currentData} /> : null}
+			<div className='aside'>
+				{currentData !== undefined ? <WeatherInfo data={currentData} /> : null}
+			</div>
 			<div className='main'>
 				{currentData !== undefined ? (
 					<FiveDaysWeatherInfo
@@ -21,7 +23,6 @@ function App() {
 						day4={day4Data}
 						day5={day5Data}
 						day6={day6Data}
-						today={today.current}
 					/>
 				) : null}
 			</div>

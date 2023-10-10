@@ -4,11 +4,19 @@ import { getFormatDate } from '../utils/main'
 
 interface SquareWeatherInfoProps {
 	day: WeatherData
+	index: number
 }
 
-export default function SquareWeatherInfo({ day }: SquareWeatherInfoProps) {
-	const formatDate = getFormatDate(day.dt)
-	console.log(formatDate)
+export default function SquareWeatherInfo({
+	day,
+	index,
+}: SquareWeatherInfoProps) {
+	let formatDate = ''
+	if (index === 0) {
+		formatDate = 'Tomorrow'
+	} else {
+		formatDate = getFormatDate(day.dt)
+	}
 
 	return (
 		<div className='square'>

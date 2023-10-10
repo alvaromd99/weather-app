@@ -8,7 +8,6 @@ interface FiveDaysWeatherInfoProps {
 	day4: WeatherData[]
 	day5: WeatherData[]
 	day6: WeatherData[]
-	today: number | undefined
 }
 
 export default function FiveDaysWeatherInfo({
@@ -38,7 +37,7 @@ export default function FiveDaysWeatherInfo({
 		<div className='five-days-cont'>
 			{!isUndefinedArray(weatherArray) &&
 				weatherArray.map((day, index) => (
-					<SquareWeatherInfo key={index} day={day} />
+					<SquareWeatherInfo key={index} index={index} day={day} />
 				))}
 		</div>
 	)
