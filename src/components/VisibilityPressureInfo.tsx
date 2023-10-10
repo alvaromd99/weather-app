@@ -1,3 +1,5 @@
+import '../styles/VisibilityPressureInfo.css'
+
 interface VisibilityPressureInfoProps {
 	title: string
 	unit: string
@@ -14,9 +16,9 @@ export default function VisibilityPressureInfo({
 	return (
 		<div className={`container ${className}`}>
 			<div>{title}</div>
-			<div>
+			<div className='numbers'>
 				<span>{number}</span>
-				{`  ${unit}`}
+				<p>{unit}</p>
 			</div>
 		</div>
 	)
