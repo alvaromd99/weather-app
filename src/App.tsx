@@ -5,6 +5,8 @@ import { use5DayWeatherData } from './hooks/use5DayWeatherData'
 import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
 import TodaysHighlight from './components/TodaysHighlight'
 
+// TODO Make the app work
+
 function App() {
 	const { loading, currentData, today } = useWeatherData()
 	const { day2Data, day3Data, day4Data, day5Data, day6Data } =

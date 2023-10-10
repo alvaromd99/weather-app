@@ -11,16 +11,11 @@ export default function SquareWeatherInfo({
 	day,
 	index,
 }: SquareWeatherInfoProps) {
-	let formatDate = ''
-	if (index === 0) {
-		formatDate = 'Tomorrow'
-	} else {
-		formatDate = getFormatDate(day.dt)
-	}
+	const formatDate = getFormatDate(day.dt)
 
 	return (
 		<div className='square'>
-			<div className='date'>{formatDate}</div>
+			<div className='date'>{index === 0 ? 'Tomorrow' : formatDate}</div>
 			<div className='weather-img'>
 				<img
 					src='../../weather-app-master/HeavyRain.png'
