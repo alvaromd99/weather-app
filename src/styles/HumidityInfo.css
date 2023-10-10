@@ -1,0 +1,35 @@
+.container.humidity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	padding-top: 20px;
+}
+
+.bar {
+	width: 240px;
+	height: 6px;
+	border-radius: 10px;
+	background-color: var(--letter-primary);
+}
+
+.bar .progress {
+	height: 100%;
+	position: relative;
+	background-color: var(--bar-color);
+	border-radius: inherit;
+}
+
+.bar-numbers {
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+}
+
+.humidity-number {
+	font-weight: bold;
+}
+
+.humidity-number span {
+	font-size: 60px;
+}

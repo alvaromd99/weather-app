@@ -12,6 +12,7 @@ interface TodaysHighlightProps {
 export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 	const visibility = data.visibility
 	const pressure = data.main.pressure
+	const humidity = data.main.humidity
 
 	console.log(visibilityUnit)
 
@@ -20,7 +21,7 @@ export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 			<h1>Today's Highlights</h1>
 			<div className='content'>
 				<WindInfo />
-				<HumidityInfo />
+				<HumidityInfo humidity={humidity} />
 				<VisibilityPressureInfo
 					title={'Visibility'}
 					unit={visibilityUnit}
