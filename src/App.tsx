@@ -13,16 +13,18 @@ function App() {
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
 			{currentData !== undefined ? <WeatherInfo data={currentData} /> : null}
-			{currentData !== undefined ? (
-				<FiveDaysWeatherInfo
-					day2={day2Data}
-					day3={day3Data}
-					day4={day4Data}
-					day5={day5Data}
-					day6={day6Data}
-					today={today.current}
-				/>
-			) : null}
+			<div className='main'>
+				{currentData !== undefined ? (
+					<FiveDaysWeatherInfo
+						day2={day2Data}
+						day3={day3Data}
+						day4={day4Data}
+						day5={day5Data}
+						day6={day6Data}
+						today={today.current}
+					/>
+				) : null}
+			</div>
 		</div>
 	)
 }

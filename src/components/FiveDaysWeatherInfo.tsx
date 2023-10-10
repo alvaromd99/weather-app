@@ -18,15 +18,25 @@ export default function FiveDaysWeatherInfo({
 	day5,
 	day6,
 }: FiveDaysWeatherInfoProps) {
-	const weatherArray = [day2[4], day3[4], day4[4], day5[4], day6[4]]
+	const weatherArray = [
+		day2[4],
+		day3[4],
+		day4[4],
+		day5[4],
+		day6[4] !== undefined ? day6[4] : day6[2],
+	]
 
-	function isNotUndefinedArray(arr: object[]) {
-		return arr.every((item) => item !== undefined)
+	function isUndefinedArray(arr: object[]) {
+		return arr.every((item) => item === undefined)
 	}
+
+	console.log(weatherArray)
+
+	console.log(isUndefinedArray(weatherArray))
 
 	return (
 		<div className='five-days-cont'>
-			{isNotUndefinedArray(weatherArray) !== undefined &&
+			{!isUndefinedArray(weatherArray) &&
 				weatherArray.map((day, index) => (
 					<SquareWeatherInfo key={index} day={day} />
 				))}
