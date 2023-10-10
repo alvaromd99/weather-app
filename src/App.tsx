@@ -3,6 +3,7 @@ import WeatherInfo from './components/WeatherInfo'
 import { useWeatherData } from './hooks/useCurrentWeatherData'
 import { use5DayWeatherData } from './hooks/use5DayWeatherData'
 import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
+import TodaysHighlight from './components/TodaysHighlight'
 
 function App() {
 	const { loading, currentData, today } = useWeatherData()
@@ -13,10 +14,10 @@ function App() {
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
 			<div className='aside'>
-				{currentData !== undefined ? <WeatherInfo data={currentData} /> : null}
+				{currentData !== undefined && <WeatherInfo data={currentData} />}
 			</div>
 			<div className='main'>
-				{currentData !== undefined ? (
+				{currentData !== undefined && (
 					<FiveDaysWeatherInfo
 						day2={day2Data}
 						day3={day3Data}
@@ -24,7 +25,8 @@ function App() {
 						day5={day5Data}
 						day6={day6Data}
 					/>
-				) : null}
+				)}
+				{currentData !== undefined && <TodaysHighlight data={currentData} />}
 			</div>
 		</div>
 	)
