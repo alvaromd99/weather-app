@@ -2,7 +2,7 @@ import '../styles/WindInfo.css'
 import { Wind } from '../types/types'
 import { WIND_SPEED_UNIT as windUnit } from '../constants/constants'
 import { degreesToCardinal } from '../utils/degreesToCardinal'
-import compassIcon from '../WindIcons/compass.svg'
+import compassIcon from '../assets/compass.svg'
 
 interface WindInfoProps {
 	wind: Wind
