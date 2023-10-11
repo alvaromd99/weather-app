@@ -1,18 +1,17 @@
 import '../styles/HumidityInfo.css'
+import { HUMIDITY_UNIT as humUnit } from '../constants/constants'
 
 interface HumidityInfoProps {
 	humidity: number
 }
 
 export default function HumidityInfo({ humidity }: HumidityInfoProps) {
-	console.log(humidity)
-
 	return (
 		<div className='container humidity'>
 			<div>Humidity</div>
 			<div className='humidity-number'>
-				<span>84</span>
-				<p>%</p>
+				<span>{humidity}</span>
+				<p>{humUnit}</p>
 			</div>
 			<div>
 				<div className='bar-numbers'>
