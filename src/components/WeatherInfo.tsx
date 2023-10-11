@@ -1,7 +1,8 @@
 import '../styles/WeatherInfo.css'
 import { CurrenWeatherData } from '../types/types'
-import { getFormatDate } from '../utils/main'
+import { getFormatDate } from '../utils/formatDate'
 import pinSvg from '../assets/pin.svg'
+import { getIcons } from '../utils/getIcon'
 
 interface WeatherInfoProps {
 	data: CurrenWeatherData
@@ -14,7 +15,7 @@ export default function WeatherInfo({ data }: WeatherInfoProps) {
 		<div className='city-info'>
 			<div className='image'>
 				<img
-					src='../../weather-app-master/LightCloud.png'
+					src={`../../weather-app-master/${getIcons(weather[0].icon)}.png`}
 					alt='Image related to the weather'
 				/>
 			</div>

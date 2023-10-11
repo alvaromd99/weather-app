@@ -1,6 +1,7 @@
 import '../styles/SquareWeatherInfo.css'
 import { WeatherData } from '../types/types'
-import { getFormatDate } from '../utils/main'
+import { getFormatDate } from '../utils/formatDate'
+import { getIcons } from '../utils/getIcon'
 
 interface SquareWeatherInfoProps {
 	day: WeatherData
@@ -18,7 +19,7 @@ export default function SquareWeatherInfo({
 			<div className='date'>{index === 0 ? 'Tomorrow' : formatDate}</div>
 			<div className='weather-img'>
 				<img
-					src='../../weather-app-master/HeavyRain.png'
+					src={`../../weather-app-master/${getIcons(day.weather[0].icon)}.png`}
 					alt='Tomorrow weather image'
 				/>
 			</div>
