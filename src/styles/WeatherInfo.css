@@ -1,5 +1,5 @@
 .city-info {
-	width: 400px;
+	width: 100%;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -20,6 +20,38 @@
 	top: 0;
 	left: 0;
 	opacity: 0.1;
+}
+
+.city-info .search-btn {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.city-info .search-btn .btn {
+	color: var(--letter-primary);
+	background-color: var(--bg-color);
+	border: none;
+	padding: 10px;
+	user-select: none;
+	z-index: 10;
+}
+
+.city-info .search-btn .btn.places {
+	border-radius: 4px;
+}
+
+.city-info .search-btn .btn:hover {
+	color: var(--bg-color);
+	background-color: var(--letter-primary);
+}
+
+.city-info .search-btn .btn.icon {
+	border-radius: 50%;
+}
+
+.city-info .search-btn .btn.icon:hover img {
+	stroke: blue;
 }
 
 .city-info .temperature .temp-number {

@@ -1,18 +1,28 @@
 import '../styles/WeatherInfo.css'
 import { CurrenWeatherData } from '../types/types'
 import { getFormatDate } from '../utils/formatDate'
-import pinSvg from '../assets/pin.svg'
 import { getIcons } from '../utils/getIcon'
+import pinSvg from '../assets/pin.svg'
+import locationSvg from '../assets/location.svg'
 
 interface WeatherInfoProps {
 	data: CurrenWeatherData
+	handleClick: () => void
 }
 
-export default function WeatherInfo({ data }: WeatherInfoProps) {
+export default function WeatherInfo({ data, handleClick }: WeatherInfoProps) {
 	const { weather, main, name, dt } = data
 
 	return (
 		<div className='city-info'>
+			<div className='search-btn'>
+				<button className='btn places' onClick={handleClick}>
+					Search for places
+				</button>
+				<button className='btn icon'>
+					<img src={locationSvg} alt='Location svg' />
+				</button>
+			</div>
 			<div className='image'>
 				<img
 					src={`../../weather-app-master/${getIcons(weather[0].icon)}.png`}

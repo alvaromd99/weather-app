@@ -17,8 +17,3 @@ export const degreesToCardinal = (degrees: number) => {
 	}
 	return 'No specific direction'
 }
-
-/* // Example usage:
-const windDirectionDegrees = 45 // Replace with your wind direction in degrees
-const cardinalDirection = degreesToCardinal(windDirectionDegrees)
-console.log(`Wind is coming from the ${cardinalDirection}`) */
