@@ -1,7 +1,8 @@
-import windIcon from '../assets/wind.svg'
-import { Wind } from '../types/types'
 import '../styles/WindInfo.css'
+import { Wind } from '../types/types'
 import { WIND_SPEED_UNIT as windUnit } from '../constants/constants'
+import { degreesToCardinal } from '../utils/degreesToCardinal'
+import compassIcon from '../WindIcons/compass.svg'
 
 interface WindInfoProps {
 	wind: Wind
@@ -16,8 +17,8 @@ export default function WindInfo({ wind }: WindInfoProps) {
 				<p>{windUnit}</p>
 			</div>
 			<div className='wind-direction'>
-				<img src={windIcon} alt='wind' />
-				<p>South</p>
+				<img src={compassIcon} alt='Wind direction' />
+				<p>{degreesToCardinal(wind.deg)}</p>
 			</div>
 		</div>
 	)

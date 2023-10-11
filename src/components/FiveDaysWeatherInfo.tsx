@@ -29,10 +29,6 @@ export default function FiveDaysWeatherInfo({
 		return arr.every((item) => item === undefined)
 	}
 
-	console.log(weatherArray)
-
-	console.log(isUndefinedArray(weatherArray))
-
 	return (
 		<div className='five-days-cont'>
 			{!isUndefinedArray(weatherArray) &&

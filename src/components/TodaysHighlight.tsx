@@ -15,8 +15,6 @@ export default function TodaysHighlight({ data }: TodaysHighlightProps) {
 	const humidity = data.main.humidity
 	const windInfo = data.wind
 
-	console.log(visibilityUnit)
-
 	return (
 		<div className='highlights'>
 			<h1>Today's Highlights</h1>

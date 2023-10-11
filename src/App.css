@@ -9,4 +9,5 @@
 .App .main {
 	width: 70%;
 	padding: 0px 120px;
+	color: var(--letter-primary);
 }

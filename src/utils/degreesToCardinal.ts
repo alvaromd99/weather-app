@@ -9,7 +9,7 @@ const cardinalDirections = [
 	{ name: 'Northwest', min: 45, max: 135 },
 ]
 
-function degreesToCardinal(degrees: number) {
+export const degreesToCardinal = (degrees: number) => {
 	for (const direction of cardinalDirections) {
 		if (degrees >= direction.min && degrees < direction.max) {
 			return direction.name
@@ -18,7 +18,7 @@ function degreesToCardinal(degrees: number) {
 	return 'No specific direction'
 }
 
-// Example usage:
+/* // Example usage:
 const windDirectionDegrees = 45 // Replace with your wind direction in degrees
 const cardinalDirection = degreesToCardinal(windDirectionDegrees)
-console.log(`Wind is coming from the ${cardinalDirection}`)
+console.log(`Wind is coming from the ${cardinalDirection}`) */
