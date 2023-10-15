@@ -5,6 +5,7 @@ import { use5DayWeatherData } from './hooks/use5DayWeatherData'
 import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
 import TodaysHighlight from './components/TodaysHighlight'
 import { useState } from 'react'
+import SearchCountry from './components/SearchCountry'
 
 // TODO Make the app work
 
@@ -12,7 +13,7 @@ function App() {
 	const { loading, currentData, today } = useWeatherData()
 	const { day2Data, day3Data, day4Data, day5Data, day6Data } =
 		use5DayWeatherData(today.current)
-	const [isSearchActive, setIsSearchActive] = useState(false)
+	const [isSearchActive, setIsSearchActive] = useState(true)
 
 	const toggleActive = () => {
 		setIsSearchActive(!isSearchActive)
@@ -21,9 +22,10 @@ function App() {
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
 			<div className='aside'>
-				{currentData !== undefined && (
+				{currentData !== undefined && !isSearchActive && (
 					<WeatherInfo data={currentData} handleClick={toggleActive} />
 				)}
+				{isSearchActive && <SearchCountry />}
 			</div>
 			<div className='main'>
 				{currentData !== undefined && (
