@@ -10,14 +10,20 @@ import SearchCountry from './components/SearchCountry'
 // TODO Make the app work
 
 function App() {
-	const { loading, currentData, today } = useWeatherData()
+	const [country, setCountry] = useState('Helsinki')
+	const [isSearchActive, setIsSearchActive] = useState(false)
+	const { loading, currentData, today } = useWeatherData(country)
 	const { day2Data, day3Data, day4Data, day5Data, day6Data } =
-		use5DayWeatherData(today.current)
-	const [isSearchActive, setIsSearchActive] = useState(true)
+		use5DayWeatherData(today.current, country)
 
 	const toggleActive = () => {
 		setIsSearchActive(!isSearchActive)
 	}
+
+	const updateCountry = (country: string) => {
+		setCountry(country)
+	}
+
 	return (
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
@@ -25,7 +31,12 @@ function App() {
 				{currentData !== undefined && !isSearchActive && (
 					<WeatherInfo data={currentData} handleClick={toggleActive} />
 				)}
-				{isSearchActive && <SearchCountry />}
+				{isSearchActive && (
+					<SearchCountry
+						updateCountry={updateCountry}
+						handleClick={toggleActive}
+					/>
+				)}
 			</div>
 			<div className='main'>
 				{currentData !== undefined && (
