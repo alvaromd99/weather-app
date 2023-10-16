@@ -1,5 +1,6 @@
 import '../styles/FiveDaysWeatherInfo.css'
 import { WeatherData } from '../types/types'
+import { isUndefinedArray } from '../utils/arrayUndefined'
 import SquareWeatherInfo from './SquareWeatherInfo'
 
 interface FiveDaysWeatherInfoProps {
@@ -25,9 +26,8 @@ export default function FiveDaysWeatherInfo({
 		day6[4] !== undefined ? day6[4] : day6[2],
 	]
 
-	function isUndefinedArray(arr: object[]) {
-		return arr.every((item) => item === undefined)
-	}
+	console.log('Weather Array')
+	console.log(weatherArray)
 
 	return (
 		<div className='five-days-cont'>

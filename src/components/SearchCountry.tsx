@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import '../styles/SearchCountry.css'
+import exitSvg from '../assets/exit.svg'
 
 interface SearchCountryProps {
 	updateCountry: (country: string) => void
@@ -14,13 +15,12 @@ export default function SearchCountry({
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.currentTarget.value)
-		console.log(e.currentTarget.value)
 	}
 
 	return (
 		<div className='search-container'>
 			<button className='exit-btn' onClick={handleClick}>
-				Go back
+				<img src={exitSvg} alt='exit btn' />
 			</button>
 			<input
 				name='search-input'

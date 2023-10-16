@@ -1,13 +1,13 @@
 import './App.css'
-import WeatherInfo from './components/WeatherInfo'
+import { useState } from 'react'
 import { useWeatherData } from './hooks/useCurrentWeatherData'
 import { use5DayWeatherData } from './hooks/use5DayWeatherData'
+import WeatherInfo from './components/WeatherInfo'
 import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
 import TodaysHighlight from './components/TodaysHighlight'
-import { useState } from 'react'
 import SearchCountry from './components/SearchCountry'
 
-// TODO Make the app work
+// TODO Look the 5 days weather fetch and more (no 5 return, just the arr)
 
 function App() {
 	const [country, setCountry] = useState('Helsinki')

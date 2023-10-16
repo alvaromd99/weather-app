@@ -8,6 +8,9 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 	const [day5Data, setDay5Data] = useState<WeatherData[]>([])
 	const [day6Data, setDay6Data] = useState<WeatherData[]>([])
 
+	console.log('today from 5daysWeather')
+	console.log(country)
+
 	useEffect(() => {
 		const fetch5DaysData = async () => {
 			try {
