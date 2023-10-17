@@ -11,7 +11,7 @@ import SearchCountry from './components/SearchCountry'
 
 function App() {
 	const [country, setCountry] = useState('Helsinki')
-	const [isSearchActive, setIsSearchActive] = useState(false)
+	const [isSearchActive, setIsSearchActive] = useState(true)
 	const { loading, currentData, today } = useWeatherData(country)
 	const { weatherArray } = use5DayWeatherData(today.current, country)
 
@@ -38,9 +38,8 @@ function App() {
 				)}
 			</div>
 			<div className='main'>
-				{currentData !== undefined && (
-					<FiveDaysWeatherInfo weatherArray={weatherArray} />
-				)}
+				<FiveDaysWeatherInfo weatherArray={weatherArray} />
+
 				{currentData !== undefined && <TodaysHighlight data={currentData} />}
 			</div>
 		</div>
