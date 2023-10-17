@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import '../styles/SearchCountry.css'
 import exitSvg from '../assets/exit.svg'
 import loupeSvg from '../assets/loupe.svg'
+import CityShortcut from './CityShortcut'
 
 interface SearchCountryProps {
 	updateCountry: (country: string) => void
@@ -46,7 +47,16 @@ export default function SearchCountry({
 					Search
 				</button>
 			</div>
-			<div className='shortcuts-container'></div>
+			<div className='shortcuts-container'>
+				{citiesArr.map((c, index) => (
+					<CityShortcut
+						key={index}
+						name={c}
+						updateCountry={updateCountry}
+						handleClick={handleClick}
+					/>
+				))}
+			</div>
 		</div>
 	)
 }

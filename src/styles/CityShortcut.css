@@ -1,0 +1,13 @@
+.shortcut-list {
+	width: 326px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 10px;
+	border: 1px solid transparent;
+}
+
+.shortcut-list:hover {
+	border-color: var(--letter-primary);
+}
