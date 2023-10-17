@@ -13,8 +13,7 @@ function App() {
 	const [country, setCountry] = useState('Helsinki')
 	const [isSearchActive, setIsSearchActive] = useState(false)
 	const { loading, currentData, today } = useWeatherData(country)
-	const { day2Data, day3Data, day4Data, day5Data, day6Data } =
-		use5DayWeatherData(today.current, country)
+	const { weatherArray } = use5DayWeatherData(today.current, country)
 
 	const toggleActive = () => {
 		setIsSearchActive(!isSearchActive)
@@ -40,13 +39,7 @@ function App() {
 			</div>
 			<div className='main'>
 				{currentData !== undefined && (
-					<FiveDaysWeatherInfo
-						day2={day2Data}
-						day3={day3Data}
-						day4={day4Data}
-						day5={day5Data}
-						day6={day6Data}
-					/>
+					<FiveDaysWeatherInfo weatherArray={weatherArray} />
 				)}
 				{currentData !== undefined && <TodaysHighlight data={currentData} />}
 			</div>

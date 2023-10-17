@@ -8,10 +8,14 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 	const [day5Data, setDay5Data] = useState<WeatherData[]>([])
 	const [day6Data, setDay6Data] = useState<WeatherData[]>([])
 
-	console.log('today from 5daysWeather')
-	console.log(country)
-
 	useEffect(() => {
+		// Reset the weather data
+		setDay2Data([])
+		setDay3Data([])
+		setDay4Data([])
+		setDay5Data([])
+		setDay6Data([])
+
 		const fetch5DaysData = async () => {
 			try {
 				const response = await fetch(
@@ -25,30 +29,24 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 				responseData.list.map((item: WeatherData) => {
 					const itemDate = new Date(item.dt * 1000).getDate()
 					if (today) {
-						if (itemDate === today + 1) {
-							setDay2Data((prevState) => {
-								return [...prevState, item]
-							})
-						}
-						if (itemDate === today + 2) {
-							setDay3Data((prevState) => {
-								return [...prevState, item]
-							})
-						}
-						if (itemDate === today + 3) {
-							setDay4Data((prevState) => {
-								return [...prevState, item]
-							})
-						}
-						if (itemDate === today + 4) {
-							setDay5Data((prevState) => {
-								return [...prevState, item]
-							})
-						}
-						if (itemDate === today + 5) {
-							setDay6Data((prevState) => {
-								return [...prevState, item]
-							})
+						switch (itemDate - today) {
+							case 1:
+								setDay2Data((prevState) => [...prevState, item])
+								break
+							case 2:
+								setDay3Data((prevState) => [...prevState, item])
+								break
+							case 3:
+								setDay4Data((prevState) => [...prevState, item])
+								break
+							case 4:
+								setDay5Data((prevState) => [...prevState, item])
+								break
+							case 5:
+								setDay6Data((prevState) => [...prevState, item])
+								break
+							default:
+								break
 						}
 					}
 				})
@@ -60,5 +58,13 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 		fetch5DaysData()
 	}, [today, country])
 
-	return { day2Data, day3Data, day4Data, day5Data, day6Data }
+	const weatherArray = [
+		day2Data[4],
+		day3Data[4],
+		day4Data[4],
+		day5Data[4],
+		day6Data[4] !== undefined ? day6Data[4] : day6Data[2],
+	]
+
+	return { weatherArray }
 }
