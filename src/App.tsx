@@ -7,11 +7,10 @@ import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
 import TodaysHighlight from './components/TodaysHighlight'
 import SearchCountry from './components/SearchCountry'
 
-// TODO Look the 5 days weather fetch and more (no 5 return, just the arr)
-
 function App() {
 	const [country, setCountry] = useState('Helsinki')
 	const [isSearchActive, setIsSearchActive] = useState(true)
+	const [temperature, setTemperature] = useState('Celsius')
 	const { loading, currentData, today } = useWeatherData(country)
 	const { weatherArray } = use5DayWeatherData(today.current, country)
 
@@ -21,6 +20,10 @@ function App() {
 
 	const updateCountry = (country: string) => {
 		setCountry(country)
+	}
+
+	const handleTempChange = () => {
+		setTemperature('Celsius')
 	}
 
 	return (
@@ -38,6 +41,12 @@ function App() {
 				)}
 			</div>
 			<div className='main'>
+				<div className='degrees-cont'>
+					<button className='degrees' onClick={handleTempChange}>
+						ºC
+					</button>
+					<button className='degrees'>ºF</button>
+				</div>
 				<FiveDaysWeatherInfo weatherArray={weatherArray} />
 
 				{currentData !== undefined && <TodaysHighlight data={currentData} />}

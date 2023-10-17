@@ -8,6 +8,21 @@
 
 .App .main {
 	width: 70%;
-	padding: 0px 120px;
+	padding: 30px 120px 0px 120px;
 	color: var(--letter-primary);
+}
+
+.App .main .degrees-cont {
+	position: absolute;
+	top: 10px;
+	right: 100px;
+}
+
+.App .main .degrees-cont .degrees {
+	all: unset;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: var(--degrees-color);
+	text-align: center;
 }
