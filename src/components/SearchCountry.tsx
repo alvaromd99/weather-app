@@ -29,7 +29,12 @@ export default function SearchCountry({
 				value={inputValue}
 				onChange={handleChange}
 			/>
-			<button className='search-btn' onClick={() => updateCountry(inputValue)}>
+			<button
+				className='search-btn'
+				onClick={() => {
+					updateCountry(inputValue)
+					handleClick()
+				}}>
 				Search
 			</button>
 		</div>
