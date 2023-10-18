@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { WeatherData } from '../types/types'
 
-export function use5DayWeatherData(today: number | undefined, country: string) {
+export function use5DayWeatherData(
+	today: number | undefined,
+	country: string,
+	temperature: 'metric' | 'imperial'
+) {
 	const [day2Data, setDay2Data] = useState<WeatherData[]>([])
 	const [day3Data, setDay3Data] = useState<WeatherData[]>([])
 	const [day4Data, setDay4Data] = useState<WeatherData[]>([])
@@ -19,7 +23,7 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 		const fetch5DaysData = async () => {
 			try {
 				const response = await fetch(
-					`https://api.openweathermap.org/data/2.5/forecast?q=${country}&units=metric&appid=0e6517a3cada027943a4ce280e2eacd3`
+					`https://api.openweathermap.org/data/2.5/forecast?q=${country}&units=${temperature}&appid=0e6517a3cada027943a4ce280e2eacd3`
 				)
 				if (!response.ok) {
 					throw new Error(`Http error! Status: ${response.status}`)
@@ -56,7 +60,7 @@ export function use5DayWeatherData(today: number | undefined, country: string) {
 		}
 
 		fetch5DaysData()
-	}, [today, country])
+	}, [today, country, temperature])
 
 	const weatherArray = [
 		day2Data[4],

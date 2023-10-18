@@ -6,6 +6,7 @@ import WeatherInfo from './components/WeatherInfo'
 import FiveDaysWeatherInfo from './components/FiveDaysWeatherInfo'
 import TodaysHighlight from './components/TodaysHighlight'
 import SearchCountry from './components/SearchCountry'
+import UnitsControl from './components/UnitsControl'
 
 function App() {
 	const [country, setCountry] = useState('Helsinki')
@@ -17,7 +18,11 @@ function App() {
 		country,
 		temperature,
 	})
-	const { weatherArray } = use5DayWeatherData(today.current, country)
+	const { weatherArray } = use5DayWeatherData(
+		today.current,
+		country,
+		temperature
+	)
 
 	const toggleActive = () => {
 		setIsSearchActive(!isSearchActive)
@@ -52,18 +57,10 @@ function App() {
 				)}
 			</div>
 			<div className='main'>
-				<div className='degrees-cont'>
-					<button
-						className={`degrees ${temperature == 'metric' ? 'active' : ''}`}
-						onClick={handleTempChange}>
-						ºC
-					</button>
-					<button
-						className={`degrees ${temperature == 'metric' ? '' : 'active'}`}
-						onClick={handleTempChange}>
-						ºF
-					</button>
-				</div>
+				<UnitsControl
+					temperature={temperature}
+					handleClick={handleTempChange}
+				/>
 				<FiveDaysWeatherInfo weatherArray={weatherArray} />
 
 				{currentData !== undefined && <TodaysHighlight data={currentData} />}
