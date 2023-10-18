@@ -11,7 +11,7 @@ const cardinalDirections = [
 
 export const degreesToCardinal = (degrees: number) => {
 	for (const direction of cardinalDirections) {
-		if (degrees >= direction.min && degrees < direction.max) {
+		if (degrees >= direction.min && degrees <= direction.max) {
 			return direction.name
 		}
 	}
