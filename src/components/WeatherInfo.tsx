@@ -8,9 +8,14 @@ import locationSvg from '../assets/location.svg'
 interface WeatherInfoProps {
 	data: CurrenWeatherData
 	handleClick: () => void
+	units: string
 }
 
-export default function WeatherInfo({ data, handleClick }: WeatherInfoProps) {
+export default function WeatherInfo({
+	data,
+	handleClick,
+	units,
+}: WeatherInfoProps) {
 	const { weather, main, name, dt } = data
 
 	return (
@@ -31,7 +36,7 @@ export default function WeatherInfo({ data, handleClick }: WeatherInfoProps) {
 			</div>
 			<div className='temperature'>
 				<span className='temp-number'>{Math.round(main.temp)}</span>
-				<span className='temp-unit'> ºC</span>
+				<span className='temp-unit'>{units === 'metric' ? 'ºC' : 'ºF'}</span>
 			</div>
 			<div className='weather-type'>{weather[0].main}</div>
 			<div className='date-location-cont'>

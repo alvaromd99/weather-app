@@ -10,8 +10,10 @@ import SearchCountry from './components/SearchCountry'
 function App() {
 	const [country, setCountry] = useState('Helsinki')
 	const [isSearchActive, setIsSearchActive] = useState(true)
-	const [temperature, setTemperature] = useState('Celsius')
-	const { loading, currentData, today } = useWeatherData(country)
+	const [temperature, setTemperature] = useState<'metric' | 'imperial'>(
+		'metric'
+	)
+	const { loading, currentData, today } = useWeatherData(country, temperature)
 	const { weatherArray } = use5DayWeatherData(today.current, country)
 
 	const toggleActive = () => {
@@ -23,7 +25,9 @@ function App() {
 	}
 
 	const handleTempChange = () => {
-		setTemperature('Celsius')
+		temperature === 'metric'
+			? setTemperature('imperial')
+			: setTemperature('metric')
 	}
 
 	return (
@@ -31,7 +35,11 @@ function App() {
 			{loading && <h1>Loading...</h1>}
 			<div className='aside'>
 				{currentData !== undefined && !isSearchActive && (
-					<WeatherInfo data={currentData} handleClick={toggleActive} />
+					<WeatherInfo
+						data={currentData}
+						handleClick={toggleActive}
+						units={temperature}
+					/>
 				)}
 				{isSearchActive && (
 					<SearchCountry
@@ -42,10 +50,16 @@ function App() {
 			</div>
 			<div className='main'>
 				<div className='degrees-cont'>
-					<button className='degrees' onClick={handleTempChange}>
+					<button
+						className={`degrees ${temperature == 'metric' ? 'active' : ''}`}
+						onClick={handleTempChange}>
 						ºC
 					</button>
-					<button className='degrees'>ºF</button>
+					<button
+						className={`degrees ${temperature == 'metric' ? '' : 'active'}`}
+						onClick={handleTempChange}>
+						ºF
+					</button>
 				</div>
 				<FiveDaysWeatherInfo weatherArray={weatherArray} />
 
