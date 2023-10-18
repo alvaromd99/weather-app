@@ -13,7 +13,10 @@ function App() {
 	const [temperature, setTemperature] = useState<'metric' | 'imperial'>(
 		'metric'
 	)
-	const { loading, currentData, today } = useWeatherData(country, temperature)
+	const { loading, currentData, today } = useWeatherData({
+		country,
+		temperature,
+	})
 	const { weatherArray } = use5DayWeatherData(today.current, country)
 
 	const toggleActive = () => {

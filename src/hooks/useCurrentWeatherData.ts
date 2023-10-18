@@ -1,7 +1,12 @@
 import { useEffect, useState, useRef } from 'react'
 import { CurrenWeatherData } from '../types/types'
 
-export function useWeatherData(country: string, temperature: string) {
+interface useWeatherDataProps {
+	country: string
+	temperature: 'metric' | 'imperial'
+}
+
+export function useWeatherData({ country, temperature }: useWeatherDataProps) {
 	const [loading, setLoading] = useState(true)
 	const [currentData, setCurrentData] = useState<CurrenWeatherData>()
 
