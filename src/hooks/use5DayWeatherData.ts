@@ -67,7 +67,7 @@ export function use5DayWeatherData(
 		day3Data[4],
 		day4Data[4],
 		day5Data[4],
-		day6Data[4] !== undefined ? day6Data[4] : day6Data[2],
+		day6Data[4] !== undefined ? day6Data[4] : day6Data[day6Data.length - 1],
 	]
 
 	return { weatherArray }

@@ -10,7 +10,7 @@ import UnitsControl from './components/UnitsControl'
 
 function App() {
 	const [country, setCountry] = useState('Helsinki')
-	const [isSearchActive, setIsSearchActive] = useState(true)
+	const [isSearchActive, setIsSearchActive] = useState(false)
 	const [temperature, setTemperature] = useState<'metric' | 'imperial'>(
 		'metric'
 	)
@@ -63,7 +63,9 @@ function App() {
 				/>
 				<FiveDaysWeatherInfo weatherArray={weatherArray} />
 
-				{currentData !== undefined && <TodaysHighlight data={currentData} />}
+				{currentData !== undefined && (
+					<TodaysHighlight data={currentData} units={temperature} />
+				)}
 			</div>
 		</div>
 	)
