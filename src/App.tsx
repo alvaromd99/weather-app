@@ -42,7 +42,7 @@ function App() {
 		<div className='App'>
 			{loading && <h1>Loading...</h1>}
 			<div className='aside'>
-				{currentData !== undefined && !isSearchActive && (
+				{currentData && !isSearchActive && (
 					<WeatherInfo
 						data={currentData}
 						handleClick={toggleActive}
@@ -62,8 +62,7 @@ function App() {
 					handleClick={handleTempChange}
 				/>
 				<FiveDaysWeatherInfo weatherArray={weatherArray} />
-
-				{currentData !== undefined && (
+				{currentData && (
 					<TodaysHighlight data={currentData} units={temperature} />
 				)}
 			</div>
